@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+		<script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>
+		<div id='container'></div>
+		<script>
+			const viewer = window.document.createElement("div");
+			const params = new URLSearchParams(window.location.search);
+			viewer["style"] = 'height: 400px; width: 400px; position: relative;';
+			viewer.setAttribute("class", 'viewer_3Dmoljs');
+			viewer.setAttribute("data-href", params.get("href"));
+			viewer.setAttribute("data-style", params.get("style") || "stick");
+			viewer.setAttribute("data-backgroundcolor", params.get("backgroundcolor") || "0xffffff");
+			viewer.setAttribute("data-type", params.get("type") || "xyz");
+			viewer.setAttribute("data-ui", params.get("ui") || "false");
+			window.document.getElementById("container").appendChild(viewer);
+		</script>
+	</body>
+</html>
